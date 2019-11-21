@@ -1,0 +1,97 @@
+<html lang="ko">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta charset="utf-8">
+        <title>미림여자정보과학고등학교 급식정보</title>
+        <link rel="shortcut icon" href="https://www.e-mirim.hs.kr/favicon.ico">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    
+         <!-- Wide card with share menu button -->
+        <style>
+
+        .demo-card-wide.mdl-card {
+          width: 512px;
+          margin:auto;
+        }
+        .demo-card-wide > .mdl-card__title {
+          color: #fff;
+          height: 176px;
+          background: url('https://scontent-icn1-1.xx.fbcdn.net/v/t1.0-1/p720x720/29243962_1839533182745765_4889352252499689472_n.jpg?_nc_cat=111&_nc_oc=AQmOY1tAHFdhbQvboY028blxXp5viLnx5QZzm3dzu9eeJyERozUcaYdxsRrZkl69qbs&_nc_ht=scontent-icn1-1.xx&oh=25f7cfba7d5ac12c5f7593da4a07716d&oe=5E8A2A7A') center / cover;
+        }
+        .demo-card-wide > .mdl-card__menu {
+          color: #fff;
+        }
+        </style>
+    
+    </head>
+<body>
+    <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+        <div class="mdl-card__title">
+        <h2 class="mdl-card__title-text">Welcome</h2>
+        </div>
+        <!--
+        <div class="mdl-card__supporting-text">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Mauris sagittis pellentesque lacus eleifend lacinia...
+        </div>
+        -->
+        <div id='f1' class="mdl-card__actions mdl-card--border">
+        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+            <h2>조식</h2>
+        </a>
+        </div>
+        <div id='f2' class="mdl-card__actions mdl-card--border">
+            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                <h2>중식</h2>
+            </a>
+        </div>
+        <div id='f3' class="mdl-card__actions mdl-card--border">
+            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                <h2>석식</h2>
+            </a>
+        </div>      
+        <!--
+        <div class="mdl-card__menu">
+        <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+            <i class="material-icons">share</i>
+        </button>
+        </div>
+        -->
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+    <script>
+        $( document ).ready(function() {
+            //alert('test');
+            $.ajax({
+                url: "https://hambob.emirim.kr/meal/",
+                dataType: 'json',                
+                success: function( data ) {
+                    //alert(d);
+                    if(data['조식']!=undefined){
+                        $('#f1').append(data['조식']);
+                    }else{
+                        $('#f1').hide();
+                    }
+                    if(data['중식']!=undefined){
+                        $('#f2').append(data['중식']);
+                    }else{
+                        $('#f2').hide();
+                    }
+                    if(data['석식']!=undefined){
+                        $('#f3').append(data['석식']);
+                    }else{
+                        $('#f3').hide();
+                    }
+                },
+                error:function(request,status,error){
+                     alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+            }});
+        });
+    </script>
+</body>        
+</html>

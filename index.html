@@ -55,7 +55,7 @@
 
         <div class="mdl-card__menu">
         <a href="https://www.facebook.com/%EB%AF%B8%EB%A6%BC%EA%B8%89%EC%8B%9D%EC%95%8C%EB%A6%BC%EC%9D%B4-1050294678336290/" target="_blank" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-            <i class="material-icons">미림급식알리미/i>
+            <i class="material-icons">미림급식알리미</i>
         </a>
         </div>
     </div>
@@ -73,6 +73,7 @@
                     //alert(d);
                     if(data['조식']!=undefined){
                         $('#f1').empty();
+                        $('#f1').append('<h2>조식</h2>');
                         $(data['조식']).each(function(index, item){
                             $('#f1').append(item + '<br>');
                         });
@@ -81,6 +82,7 @@
                     }
                     if(data['중식']!=undefined){
                         $('#f2').empty();
+                        $('#f2').append('<h2>중식</h2>');
                         $(data['중식']).each(function(index, item){
                             $('#f2').append(item + '<br>');
                         });
@@ -89,6 +91,7 @@
                     }
                     if(data['석식']!=undefined){
                         $('#f3').empty();
+                        $('#f3').append('<h2>석식</h2>');
                         $(data['석식']).each(function(index, item){
                             $('#f3').append(item + '<br>');
                         });

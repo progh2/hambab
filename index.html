@@ -72,7 +72,7 @@
                 success: function( data ) {
                     //alert(d);
                     if(data['조식']!=undefined){
-                        $('#f1').append(data['조식']);
+                        $('#f1').empty();
                         $(data['조식']).each(function(index, item){
                             $('#f1').append(item + '<br>');
                         });
@@ -80,12 +80,18 @@
                         $('#f1').hide();
                     }
                     if(data['중식']!=undefined){
-                        $('#f2').append(data['중식']);
+                        $('#f2').empty();
+                        $(data['중식']).each(function(index, item){
+                            $('#f2').append(item + '<br>');
+                        });
                     }else{
                         $('#f2').hide();
                     }
                     if(data['석식']!=undefined){
-                        $('#f3').append(data['석식']);
+                        $('#f3').empty();
+                        $(data['석식']).each(function(index, item){
+                            $('#f3').append(item + '<br>');
+                        });
                     }else{
                         $('#f3').hide();
                     }

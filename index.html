@@ -52,13 +52,12 @@
                 <h2>석식</h2>
             </a>
         </div>      
-        <!--
+
         <div class="mdl-card__menu">
-        <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-            <i class="material-icons">share</i>
-        </button>
+        <a href="https://www.facebook.com/%EB%AF%B8%EB%A6%BC%EA%B8%89%EC%8B%9D%EC%95%8C%EB%A6%BC%EC%9D%B4-1050294678336290/" target="_blank" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+            <i class="material-icons">미림급식알리미/i>
+        </a>
         </div>
-        -->
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -74,6 +73,9 @@
                     //alert(d);
                     if(data['조식']!=undefined){
                         $('#f1').append(data['조식']);
+                        $(data['조식']).each(function(index, item){
+                            $('#f1').append(item + '<br>');
+                        });
                     }else{
                         $('#f1').hide();
                     }

@@ -5,19 +5,16 @@ app.use(cors());
 const School = require('node-school-kr')
 console.log("시작");
 
-var mealsInfo = {};
+let mealsInfo = {};
 
-var today = new Date();
+let today = new Date();
 schoolConfig = {} 
 schoolConfig['type'] = School.Type.HIGH
 schoolConfig['site'] = School.Region.SEOUL
 schoolConfig['code'] = 'B100000439'
-schoolConfig['year'] = today.getFullYear()
-schoolConfig['month'] = today.getMonth() + 1
-
 
 const getmeal = async function (schoolConfig, year, month, day) {
-	var key_head = schoolConfig['code'];
+	let key_head = schoolConfig['code'];
 	if(schoolConfig == undefined || year == undefined || month == undefined || day == undefined){
 		return {message:'error'}
 	}
@@ -102,15 +99,19 @@ const getmeal = async function (schoolConfig, year, month, day) {
 app.get('/', async (req, res) => {
 	//console.log("connect /");
 	//res.send(schoolConfig);
-	var today = new Date();
-	var day = today.getDate();
- 	res.json(await  getmeal(schoolConfig, schoolConfig['year'], schoolConfig['month'], day));
+	let today = new Date();
+	let year = today.getFullYear();
+	let month = today.getMonth() + 1
+	let day = today.getDate();
+ 	res.json(await  getmeal(schoolConfig, year, month, day));
 });
 
 app.get('/meal', async (req, res) => {
-	var today = new Date();
-	var day = today.getDate();
-	res.json(await  getmeal(schoolConfig, schoolConfig['year'], schoolConfig['month'], day));
+	let today = new Date();
+	let year = today.getFullYear();
+	let month = today.getMonth() + 1
+	let day = today.getDate();
+ 	res.json(await  getmeal(schoolConfig, year, month, day));
 });
 
 
